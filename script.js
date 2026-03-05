@@ -1,39 +1,76 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent actual form submission (no server yet)
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    if (name && email && message) {
-        document.getElementById('form-response').textContent = 'Thanks for your message, ' + name + '! (This is a simulation)';
-        // Clear form
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('message').value = '';
-    } else {
-        document.getElementById('form-response').textContent = 'Please fill out all fields.';
-    }
-const toggleButton = document.getElementById('theme-toggle');
-const html = document.documentElement;
+// === Contact Form Handling ===
+const contactForm = document.getElementById('contact-form');
+const responseEl = document.getElementById('form-response');
 
-// Check for saved preference or system preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    html.setAttribute('data-theme', savedTheme);
-    toggleButton.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    html.setAttribute('data-theme', 'dark');
-    toggleButton.textContent = '☀️ Light Mode';
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (name && email && message) {
+            responseEl.textContent = `Thanks for your message, ${name}! (This is a simulation)`;
+            responseEl.style.color = 'var(--accent)'; // Use theme accent color
+            responseEl.style.opacity = '1';
+
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => {
+                responseEl.style.opacity = '0';
+                setTimeout(() => { responseEl.textContent = ''; }, 400);
+            }, 5000);
+        } else {
+            responseEl.textContent = 'Please fill out all fields.';
+            responseEl.style.color = '#ef4444'; // Red for error
+            responseEl.style.opacity = '1';
+        }
+    });
 }
 
-toggleButton.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+// === Dark/Light Mode Toggle ===
+const toggleButton = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+
+if (toggleButton) {
+    // Load saved or system preference on page load
+    let currentTheme = localStorage.getItem('theme');
     
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    toggleButton.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-});
-});
+    if (!currentTheme) {
+        // Respect user's OS preference if no saved choice
+        currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    htmlEl.setAttribute('data-theme', currentTheme);
+    toggleButton.textContent = currentTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+
+    // Toggle on click
+    toggleButton.addEventListener('click', () => {
+        const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        toggleButton.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+}
+#form-response {
+    margin-top: 1rem;
+    font-weight: 500;
+    min-height: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+[data-theme="light"] #form-response {
+    color: #166534; /* Dark green for success in light mode */
+}
+
+[data-theme="dark"] #form-response {
+    color: #6ee7b7; /* Light green/teal for success in dark mode */
+}
