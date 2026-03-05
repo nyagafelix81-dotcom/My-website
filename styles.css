@@ -100,7 +100,59 @@ nav ul li a:hover {
     box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
 }
 }
+/* Root variables for easy theming */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: linear-gradient(135deg, #2e7d32, #4CAF50, #66BB6A);
+    --card-bg: white;
+    --accent: #4CAF50;
+    --border: #ccc;
+}
 
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: linear-gradient(135deg, #1a1a1a, #2c2c2c, #3a3a3a);
+    --card-bg: #1e1e1e;
+    --accent: #00bfff;     /* Cyan-ish for tech feel, no green */
+    --border: #444;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background: var(--header-bg);
+    transition: background 0.5s;
+}
+
+section {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+}
+
+.profile-photo {
+    border: 4px solid var(--accent);
+    box-shadow: 0 6px 15px rgba(0, 191, 255, 0.3); /* Cyan glow in dark */
+}
+
+button, a {
+    color: var(--text-color);
+}
+
+/* Remove old green-specific rules or override them with vars */
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+.project {
+    border-left: 5px solid var(--accent);
+}
 footer {
     text-align: center;
     padding: 10px;
@@ -109,3 +161,4 @@ footer {
 }html {
     scroll-behavior: smooth;
 }
+
