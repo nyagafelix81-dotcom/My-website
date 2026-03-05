@@ -1,74 +1,104 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-.project {
-    background: #f9f9f9;
-    padding: 15px;
-    margin: 15px 0;
-    border-left: 4px solid #4CAF50;
-}
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-form {
+/* Improved About section layout */
+.about-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;          /* Vertically centers photo with text */
+    gap: 25px;                    /* Space between photo and text */
+    flex-wrap: wrap;              /* Good on small screens */
+    margin-top: 15px;
 }
 
-label {
-    margin-top: 10px;
+.profile-photo {
+    width: 160px;                 /* Slightly bigger for impact */
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;            /* Prevents stretching if proportions differ */
+    border: 4px solid #4CAF50;    /* Techy green border */
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3); /* Glow/shadow for liveliness */
+    flex-shrink: 0;               /* Photo won't shrink too much */
 }
 
-input, textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.about-text {
+    flex: 1;                      /* Text takes remaining space */
+    min-width: 250px;
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.about-text p {
+    margin: 12px 0;
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
-button:hover {
-    background-color: #45a049;
+.about-text strong {
+    color: #4CAF50;
+}
+
+/* Make header more lively & techy */
+header {
+    background: linear-gradient(135deg, #2e7d32, #4CAF50, #66BB6A); /* Green gradient */
+    padding: 60px 20px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation: pulse 8s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%      { transform: scale(1.1); opacity: 0.9; }
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Hover effects on nav for tech feel */
+nav ul li a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #e0f2e9;
+}
+
+/* Project cards more techy */
+.project {
+    background: linear-gradient(145deg, #f9f9f9, #ffffff);
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #4CAF50;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+}
 }
 
 footer {
