@@ -7,15 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="page-entry">
+<body>
     <header class="hero">
         <div class="container">
-            <h1 class="typing-container">
-                <span id="typing-name" class="typing-text">Nyaga Felix Fundi</span>
-            </h1>
-            <p class="tagline typing-container">
-                <span id="typing-tag" class="typing-text">Web Developer from Thika • Building clean & functional websites</span>
-            </p>
+            <h1>Nyaga Felix Fundi</h1>
+            <p class="tagline">Web Developer from Thika • Building clean & functional websites</p>
             <button id="theme-toggle">🌙 Dark Mode</button>
         </div>
         <nav>
@@ -34,9 +30,9 @@
             <div class="about-flex">
                 <img src="WhatsApp Image 2026-03-04 at 11.10.14.jpeg" alt="Nyaga Felix Fundi" class="profile-photo">
                 <div>
-                    <p>Hi, I'm <strong>Nyaga Felix Fundi</strong> from Thika</p>
-                    <p>I'm learning web development and excited to build cool stuff. Passionate about turning ideas into clean, functional websites.</p>
-                    <p>Currently exploring HTML, CSS, JavaScript — always up for new tech!</p>
+                    <p>Hi, I'm <strong>Nyaga Felix Fundi</strong> from Thika!</p>
+                    <p>Motivated IT student diving deep into web dev. Love turning ideas into real, clean websites that just work.</p>
+                    <p>Always learning — let's build something dope together!</p>
                 </div>
             </div>
         </section>
@@ -45,16 +41,28 @@
             <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <span class="skill-name">HTML</span>
-                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    <span class="skill-name">HTML5</span>
+                    <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-name">CSS</span>
+                    <span class="skill-name">CSS3 / Tailwind</span>
                     <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-name">JavaScript</span>
-                    <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+                    <span class="skill-name">JavaScript (ES6+)</span>
+                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Git & GitHub</span>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Responsive Design</span>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Figma (UI Basics)</span>
+                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
                 </div>
             </div>
         </section>
@@ -62,30 +70,30 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
-                <h3>My First Website</h3>
-                <p>This portfolio site. Built with HTML, CSS & a little JavaScript. Features dark mode, form submission, and responsive design.</p>
+                <h3>My First Portfolio</h3>
+                <p>This site! Dark/light mode, real form submission via Formspree, responsive layout, typing animation.</p>
             </div>
             <div class="project">
-                <h3>Task Tracker App (In Progress)</h3>
-                <p>A simple to-do list app with local storage, add/delete tasks, and dark mode toggle. Learning JS DOM manipulation.</p>
+                <h3>Task Tracker (In Progress)</h3>
+                <p>Simple to-do app with localStorage, add/edit/delete, dark mode. Pure vanilla JS practice.</p>
             </div>
             <div class="project">
-                <h3>Weather Dashboard (Coming Soon)</h3>
-                <p>Plan to build a weather app using a free API. Will show current weather, forecast, and location-based data.</p>
+                <h3>Weather Dashboard (Planned)</h3>
+                <p>Coming soon: Fetch API weather data, search by city, 5-day forecast.</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
-            <p>Reach out via email or phone:</p>
+            <p>Drop a message or give me a call:</p>
             <p class="contact-info">
-                Phone: <a href="tel:+254115481116">+254 115 481 116</a> or 
+                Phone: <a href="tel:+254115481116">+254 115 481 116</a> | 
                 <a href="tel:+254111361870">+254 111 361 870</a>
             </p>
-            <form id="contact-form" action="https://https://formspree.io/f/mkoqnnwr" method="POST">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <textarea id="message" name="message" placeholder="Your Message" required rows="5"></textarea>
+            <form id="contact-form" action="https://formspree.io/f/mkoqnnwr" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required rows="5"></textarea>
                 <button type="submit">Send Message</button>
             </form>
             <p id="form-response"></p>
@@ -95,15 +103,11 @@
     <footer>
         <p>© 2026 Nyaga Felix Fundi</p>
         <div class="social-icons">
-            <a href="https://x.com/F_fundii" target="_blank" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
+            <a href="https://x.com/F_fundii" target="_blank" aria-label="X">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://github.com/nyagafelix81-dotcom" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
         </div>
     </footer>
